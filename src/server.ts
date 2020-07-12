@@ -3,7 +3,7 @@ import { ApolloServer } from "apollo-server-express";
 import depthLimit from "graphql-depth-limit";
 import { createServer } from "http";
 import cors from "cors";
-import schema from "./gql/schema";
+import schema from "./schema";
 
 const app = express();
 const server = new ApolloServer({

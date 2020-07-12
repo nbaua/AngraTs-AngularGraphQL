@@ -4,6 +4,8 @@
   "description": "",
   "main": "src/server.ts",
   "scripts": {
+    "start": "node 'dist/server.js'",
+    "build": "tsc -p . && copyfiles ./src/gql/*.graphql ./dist/gql/",
     "start:dev": "npm run build:dev",
     "build:dev": "nodemon ./src/server.ts npx ts-node ./src/server.ts -e ts,graphql"
   },
@@ -36,6 +38,7 @@
   },
   "dependencies": {
     "apollo-server-express": "^2.15.1",
+    "copyfiles": "^2.3.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "graphql": "^15.3.0",
