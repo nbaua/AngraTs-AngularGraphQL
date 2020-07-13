@@ -1,3 +1,33 @@
 type Query {
-  helloWorld: String!
-}
+
+    carriers(offset:Int = 0, limit:Int = 10): [Carrier]
+    carrier(id:ID!): Carrier
+    
+    flights(offset:Int = 0, limit:Int = 10): [Flight]
+    flight(id:ID!): Flight
+
+    carrier_flights(flight_code:String): [Flight]
+  }
+
+  type Carrier {
+    id: ID
+    flight_code: String
+    tailnum: String
+    airline: String
+    flight_ref: String
+  }
+
+  type Flight {
+    id: ID
+    flight_code: String
+    origin: String
+    destination: String
+    air_time: String
+    distance: String
+    airport: String
+    flight_date : String
+  }
+ 
+  extend type Flight{
+    carrier: Carrier
+  }

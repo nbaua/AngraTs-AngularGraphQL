@@ -6,6 +6,7 @@ import cors from "cors";
 import schema from "./schema";
 
 const app = express();
+
 const server = new ApolloServer({
   schema,
   validationRules: [depthLimit(7)],
