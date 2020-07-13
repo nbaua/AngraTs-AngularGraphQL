@@ -5,7 +5,7 @@
   "main": "src/server.ts",
   "scripts": {
     "start": "node 'dist/server.js'",
-    "build": "tsc -p . && copyfiles ./src/gql/*.graphql ./dist/gql/",
+    "build": "tsc -p . && copyfiles ./src/gql/*.graphql ./dist/gql/ && copyfiles ./src/database/*.* ./dist/database/ ",
     "start:dev": "npm run build:dev",
     "build:dev": "nodemon ./src/server.ts npx ts-node ./src/server.ts -e ts,graphql"
   },
@@ -37,11 +37,14 @@
     "typescript": "^3.9.6"
   },
   "dependencies": {
+    "@types/sqlite3": "^3.1.6",
     "apollo-server-express": "^2.15.1",
     "copyfiles": "^2.3.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "graphql": "^15.3.0",
-    "http": "0.0.1-security"
+    "http": "0.0.1-security",
+    "path": "^0.12.7",
+    "sqlite3": "^5.0.0"
   }
 }
